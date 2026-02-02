@@ -1,6 +1,11 @@
 # write your code here
-def copy_file(command: str, filename: str, copy_name: str) -> None:
-    if command == "cd" and filename != copy_name:
+def copy_file(command: str) -> None:
+    command_elems = command.split(" ")
+    command = command_elems[0]
+    filename = command_elems[1]
+    copy_name = command_elems[2]
+
+    if command == "cp" and filename != copy_name:
         with open(filename, "r") as file_in, open(copy_name, "w") as file_out:
             original_text = file_in.read()
             file_out.write(original_text)
